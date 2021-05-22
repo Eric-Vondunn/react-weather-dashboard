@@ -1,6 +1,9 @@
 import React, { useState } from "react";
 import "./index.css";
 
+//tutorial link
+//https://www.youtube.com/watch?v=GuA0_Z1llYU
+
 const api = {
   key: "d68c5ff18d1276c2ab84ad6e79eda2a6",
   base: "https://api.openweathermap.org/data/2.5/",
