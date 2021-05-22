@@ -1,9 +1,9 @@
 import React, { useState } from "react";
-import "./App.css";
+import "./index.css";
 
 const api = {
   key: "d68c5ff18d1276c2ab84ad6e79eda2a6",
-  base: "https://api.openweathermap.org/data/2.5",
+  base: "https://api.openweathermap.org/data/2.5/",
 };
 
 function App() {
@@ -12,7 +12,7 @@ function App() {
 
   const search = (e) => {
     if (e.key === "Enter") {
-      fetch(`${api.base}weather?q=${query}&units=imperial&APPID=${api.key}`)
+      fetch(`${api.base}weather?q=${query}&units=metric&APPID=${api.key}`)
         .then((res) => res.json())
         .then((result) => {
           setWeather(result);
@@ -75,7 +75,6 @@ function App() {
             onKeyPress={search}
           />
         </div>
-
         {typeof weather.main != "undefined" ? (
           <div>
             <div className="location-box">
@@ -85,7 +84,7 @@ function App() {
               <div className="date">{dateBuilder(new Date())}</div>
             </div>
             <div className="weather-box">
-              <div className="temp">{Math.round(weather.main.temp)}°c</div>
+              <div className="temp">{Math.round(weather.main.temp)}°F</div>
               <div className="weather">{weather.weather[0].main}</div>
             </div>
           </div>
